@@ -1,0 +1,6 @@
+This logistics management system simulates the operations of a transportation company.
+It handles resource storage in warehouses, schedules and organizes trips using different
+transport modes (trucks, planes, trains, ships), and tracks the transportation of various
+resource types like food,medications, grain, and oil The system ensures efficient dispatch
+trip scheduling with priority handling, and status tracking of transports.It also logs key
+events and errors for monitoring purposes.

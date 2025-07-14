@@ -1,0 +1,395 @@
+2025-07-09 21:43:34.791 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Truck added to queue: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-09 21:43:34.802 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Plane added to queue: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-09 21:43:34.802 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Train added to queue: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-09 21:43:34.803 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Ship added to queue: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-09 21:43:34.817 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched truck: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-09 21:43:34.819 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-09 21:43:34.825 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T00:43:34.823009300
+2025-07-09 21:43:34.825 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T00:43:34.823009300
+2025-07-09 21:43:34.841 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Truck{name='Truck A', capacity=1500.0speed80.0}, resource=Food{1000.0 kg}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Lviv'}, totalDistance=540.0}
+2025-07-09 21:43:34.842 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-09 21:43:34.843 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-09 21:43:34.843 [main] INFO  com.companyname.logistics.transport.Transport - Transport Truck A delivers Food{1000.0 kg} from Kyiv Warehouse to Lviv
+2025-07-09 21:43:34.853 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 6,75 hours
+2025-07-09 21:43:34.854 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Food
+2025-07-09 21:43:34.854 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Perishable food products suitable for transportation.
+2025-07-09 21:43:34.855 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched plane: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-09 21:43:34.855 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-09 21:43:34.855 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T00:43:34.855012
+2025-07-09 21:43:34.856 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T00:43:34.855012
+2025-07-09 21:43:34.857 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Plane A', capacity=600.0, speed=900.0}, resource=Medications{500.0 ml}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Odessa'}, totalDistance=450.0}
+2025-07-09 21:43:34.858 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-09 21:43:34.858 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-09 21:43:34.858 [main] INFO  com.companyname.logistics.transport.Plane - Transport Plane A delivers Medications{500.0 ml} from Kyiv Warehouse to Odessa
+2025-07-09 21:43:34.859 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 0,50 hours
+2025-07-09 21:43:34.859 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Medications
+2025-07-09 21:43:34.860 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Medical supplies suitable for safe and temperature-controlled delivery.
+2025-07-09 21:43:34.860 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched train: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-09 21:43:34.861 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-09 21:43:34.861 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T00:43:34.861014300
+2025-07-09 21:43:34.861 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T00:43:34.861014300
+2025-07-09 21:43:34.862 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Train A', capacity=2500.0, speed=120.0}, resource=Grain{2000.0 kg}, from=Location{name='Odessa Warehouse'}, to=Location{name='Kyiv'}, totalDistance=480.0}
+2025-07-09 21:43:34.863 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-09 21:43:34.863 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-09 21:43:34.864 [main] INFO  com.companyname.logistics.transport.Train - Transport Train A delivers Grain{2000.0 kg} from Odessa Warehouse to Kyiv
+2025-07-09 21:43:34.865 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 4,00 hours
+2025-07-09 21:43:34.865 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Grain
+2025-07-09 21:43:34.866 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Bulk grain products suitable for storage and long-distance transportation.
+2025-07-09 21:43:34.866 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched ship: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-09 21:43:34.866 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-09 21:43:34.867 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T00:43:34.866012800
+2025-07-09 21:43:34.867 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T00:43:34.866012800
+2025-07-09 21:43:34.868 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Ship A', capacity=2000.0, speed=40.0}, resource=Oil{1500.0 liters}, from=Location{name='Odessa Warehouse'}, to=Location{name='Lviv'}, totalDistance=680.0}
+2025-07-09 21:43:34.868 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-09 21:43:34.869 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-09 21:43:34.869 [main] INFO  com.companyname.logistics.transport.Ship - Transport Ship A delivers Oil{1500.0 liters} from Odessa Warehouse to Lviv
+2025-07-09 21:43:34.870 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 17,00 hours
+2025-07-09 21:43:34.870 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Oil
+2025-07-09 21:43:34.871 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Industrial-grade oil used for fuel or lubrication.
+2025-07-09 21:46:11.969 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Truck added to queue: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-09 21:46:11.979 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Plane added to queue: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-09 21:46:11.980 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Train added to queue: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-09 21:46:11.981 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Ship added to queue: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-09 21:46:12.002 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched truck: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-09 21:46:12.003 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-09 21:46:12.013 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T00:46:12.010443900
+2025-07-09 21:46:12.013 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T00:46:12.010443900
+2025-07-09 21:46:12.033 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Truck{name='Truck A', capacity=1500.0speed80.0}, resource=Food{1000.0 kg}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Lviv'}, totalDistance=540.0}
+2025-07-09 21:46:12.033 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-09 21:46:12.034 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-09 21:46:12.035 [main] INFO  com.companyname.logistics.transport.Transport - Transport Truck A delivers Food{1000.0 kg} from Kyiv Warehouse to Lviv
+2025-07-09 21:46:12.043 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 6,75 hours
+2025-07-09 21:46:12.044 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Food
+2025-07-09 21:46:12.044 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Perishable food products suitable for transportation.
+2025-07-09 21:46:12.044 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched plane: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-09 21:46:12.045 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-09 21:46:12.046 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T00:46:12.045446
+2025-07-09 21:46:12.046 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T00:46:12.045446
+2025-07-09 21:46:12.047 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Plane A', capacity=600.0, speed=900.0}, resource=Medications{500.0 ml}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Odessa'}, totalDistance=450.0}
+2025-07-09 21:46:12.048 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-09 21:46:12.048 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-09 21:46:12.049 [main] INFO  com.companyname.logistics.transport.Plane - Transport Plane A delivers Medications{500.0 ml} from Kyiv Warehouse to Odessa
+2025-07-09 21:46:12.049 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 0,50 hours
+2025-07-09 21:46:12.050 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Medications
+2025-07-09 21:46:12.050 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Medical supplies suitable for safe and temperature-controlled delivery.
+2025-07-09 21:46:12.051 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched train: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-09 21:46:12.051 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-09 21:46:12.052 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T00:46:12.052446800
+2025-07-09 21:46:12.052 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T00:46:12.052446800
+2025-07-09 21:46:12.053 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Train A', capacity=2500.0, speed=120.0}, resource=Grain{2000.0 kg}, from=Location{name='Odessa Warehouse'}, to=Location{name='Kyiv'}, totalDistance=480.0}
+2025-07-09 21:46:12.054 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-09 21:46:12.054 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-09 21:46:12.055 [main] INFO  com.companyname.logistics.transport.Train - Transport Train A delivers Grain{2000.0 kg} from Odessa Warehouse to Kyiv
+2025-07-09 21:46:12.055 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 4,00 hours
+2025-07-09 21:46:12.056 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Grain
+2025-07-09 21:46:12.056 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Bulk grain products suitable for storage and long-distance transportation.
+2025-07-09 21:46:12.057 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched ship: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-09 21:46:12.057 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-09 21:46:12.057 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T00:46:12.057449600
+2025-07-09 21:46:12.058 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T00:46:12.057449600
+2025-07-09 21:46:12.059 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Ship A', capacity=2000.0, speed=40.0}, resource=Oil{1500.0 liters}, from=Location{name='Odessa Warehouse'}, to=Location{name='Lviv'}, totalDistance=680.0}
+2025-07-09 21:46:12.059 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-09 21:46:12.060 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-09 21:46:12.060 [main] INFO  com.companyname.logistics.transport.Ship - Transport Ship A delivers Oil{1500.0 liters} from Odessa Warehouse to Lviv
+2025-07-09 21:46:12.061 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 17,00 hours
+2025-07-09 21:46:12.062 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Oil
+2025-07-09 21:46:12.062 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Industrial-grade oil used for fuel or lubrication.
+2025-07-10 16:15:06.598 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Truck added to queue: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-10 16:15:06.614 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Plane added to queue: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-10 16:15:06.614 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Train added to queue: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-10 16:15:06.614 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Ship added to queue: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-10 16:15:06.614 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched truck: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-10 16:15:06.614 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-10 16:15:06.629 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T19:15:06.614252100
+2025-07-10 16:15:06.629 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T19:15:06.614252100
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Truck{name='Truck A', capacity=1500.0speed80.0}, resource=Food{1000.0 kg}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Lviv'}, totalDistance=540.0}
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.transport.Transport - Transport Truck A delivers Food{1000.0 kg} from Kyiv Warehouse to Lviv
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 6,75 hours
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Food
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Perishable food products suitable for transportation.
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched plane: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T19:15:06.645496400
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T19:15:06.645496400
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Plane A', capacity=600.0, speed=900.0}, resource=Medications{500.0 ml}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Odessa'}, totalDistance=450.0}
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-10 16:15:06.645 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.transport.Plane - Transport Plane A delivers Medications{500.0 ml} from Kyiv Warehouse to Odessa
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 0,50 hours
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Medications
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Medical supplies suitable for safe and temperature-controlled delivery.
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched train: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T19:15:06.661113400
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T19:15:06.661113400
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Train A', capacity=2500.0, speed=120.0}, resource=Grain{2000.0 kg}, from=Location{name='Odessa Warehouse'}, to=Location{name='Kyiv'}, totalDistance=480.0}
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.transport.Train - Transport Train A delivers Grain{2000.0 kg} from Odessa Warehouse to Kyiv
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 4,00 hours
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Grain
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Bulk grain products suitable for storage and long-distance transportation.
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched ship: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-10 16:15:06.661 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-10 16:15:06.661 [main] ERROR Main - Trip 4 failed: There is already a trip scheduled at this time: 2025-07-10T19:15:06.661113400
+2025-07-10 16:15:42.207 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Truck added to queue: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-10 16:15:42.207 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Plane added to queue: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-10 16:15:42.207 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Train added to queue: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-10 16:15:42.207 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Ship added to queue: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-10 16:15:42.223 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched truck: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-10 16:15:42.223 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-10 16:15:42.223 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T19:15:42.223208300
+2025-07-10 16:15:42.223 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T19:15:42.223208300
+2025-07-10 16:15:42.254 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Truck{name='Truck A', capacity=1500.0speed80.0}, resource=Food{1000.0 kg}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Lviv'}, totalDistance=540.0}
+2025-07-10 16:15:42.254 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-10 16:15:42.254 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-10 16:15:42.254 [main] INFO  com.companyname.logistics.transport.Transport - Transport Truck A delivers Food{1000.0 kg} from Kyiv Warehouse to Lviv
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 6,75 hours
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Food
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Perishable food products suitable for transportation.
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched plane: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T19:15:42.270082100
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T19:15:42.270082100
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Plane A', capacity=600.0, speed=900.0}, resource=Medications{500.0 ml}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Odessa'}, totalDistance=450.0}
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.transport.Plane - Transport Plane A delivers Medications{500.0 ml} from Kyiv Warehouse to Odessa
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 0,50 hours
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Medications
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Medical supplies suitable for safe and temperature-controlled delivery.
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched train: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-10 16:15:42.270 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-10 16:15:42.285 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T19:15:42.285704400
+2025-07-10 16:15:42.285 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T19:15:42.285704400
+2025-07-10 16:15:42.285 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Train A', capacity=2500.0, speed=120.0}, resource=Grain{2000.0 kg}, from=Location{name='Odessa Warehouse'}, to=Location{name='Kyiv'}, totalDistance=480.0}
+2025-07-10 16:15:42.285 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-10 16:15:42.285 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-10 16:15:42.285 [main] INFO  com.companyname.logistics.transport.Train - Transport Train A delivers Grain{2000.0 kg} from Odessa Warehouse to Kyiv
+2025-07-10 16:15:42.285 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 4,00 hours
+2025-07-10 16:15:42.285 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Grain
+2025-07-10 16:15:42.285 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Bulk grain products suitable for storage and long-distance transportation.
+2025-07-10 16:15:42.285 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched ship: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-10 16:15:42.285 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-10 16:15:42.285 [main] ERROR Main - Trip 4 failed: There is already a trip scheduled at this time: 2025-07-10T19:15:42.285704400
+2025-07-10 16:49:36.479 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Truck added to queue: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-10 16:49:36.558 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Plane added to queue: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-10 16:49:36.558 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Train added to queue: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-10 16:49:36.558 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Ship added to queue: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-10 16:49:36.558 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched truck: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-10 16:49:36.558 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-10 16:49:36.683 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T19:49:36.683068500
+2025-07-10 16:49:36.683 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T19:49:36.683068500
+2025-07-10 16:49:36.698 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Truck{name='Truck A', capacity=1500.0speed80.0}, resource=Food{1000.0 kg}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Lviv'}, totalDistance=540.0}
+2025-07-10 16:49:36.698 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-10 16:49:36.698 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-10 16:49:36.698 [main] INFO  com.companyname.logistics.transport.Transport - Transport Truck A delivers Food{1000.0 kg} from Kyiv Warehouse to Lviv
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 6,75 hours
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Food
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Perishable food products suitable for transportation.
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched plane: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-10T19:49:36.761135500
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-10T19:49:36.761135500
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Plane A', capacity=600.0, speed=900.0}, resource=Medications{500.0 ml}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Odessa'}, totalDistance=450.0}
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.transport.Plane - Transport Plane A delivers Medications{500.0 ml} from Kyiv Warehouse to Odessa
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 0,50 hours
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Medications
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Medical supplies suitable for safe and temperature-controlled delivery.
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched train: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-10 16:49:36.761 [main] ERROR Main - Trip 3 failed: There is already a trip scheduled at this time: 2025-07-10T19:49:36.761135500
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched ship: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-10 16:49:36.761 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-10 16:49:36.761 [main] ERROR Main - Trip 4 failed: There is already a trip scheduled at this time: 2025-07-10T19:49:36.761135500
+2025-07-10 16:49:36.761 [main] INFO  Main - 
+=== Transported Resources ===
+2025-07-10 16:49:36.761 [main] INFO  Main - - Medications (500.0 kg)
+2025-07-10 16:49:36.761 [main] INFO  Main - - Food (1000.0 kg)
+2025-07-10 16:49:36.761 [main] INFO  Main - ==============================
+
+2025-07-13 15:21:20.921 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Truck added to queue: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-13 15:21:20.985 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Plane added to queue: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-13 15:21:20.985 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Train added to queue: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-13 15:21:20.985 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Ship added to queue: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-13 15:21:21.172 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched truck: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-13 15:21:21.172 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-13 15:21:21.281 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-13T18:21:21.266405500
+2025-07-13 15:21:21.281 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-13T18:21:21.266405500
+2025-07-13 15:21:21.297 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Truck{name='Truck A', capacity=1500.0speed80.0}, resource=Food{1000.0 kg}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Lviv'}, totalDistance=540.0}
+2025-07-13 15:21:21.297 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-13 15:21:21.297 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-13 15:21:21.297 [main] INFO  com.companyname.logistics.transport.Transport - Transport Truck A delivers Food{1000.0 kg} from Kyiv Warehouse to Lviv
+2025-07-13 15:21:21.328 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 6,75 hours
+2025-07-13 15:21:21.328 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Food
+2025-07-13 15:21:21.344 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Perishable food products suitable for transportation.
+2025-07-13 15:21:21.344 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched plane: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-13 15:21:21.344 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-13 15:21:21.344 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-13T18:21:21.344546200
+2025-07-13 15:21:21.344 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-13T18:21:21.344546200
+2025-07-13 15:21:21.344 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Plane A', capacity=600.0, speed=900.0}, resource=Medications{500.0 ml}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Odessa'}, totalDistance=450.0}
+2025-07-13 15:21:21.344 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.transport.Plane - Transport Plane A delivers Medications{500.0 ml} from Kyiv Warehouse to Odessa
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 0,50 hours
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Medications
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Medical supplies suitable for safe and temperature-controlled delivery.
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched train: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-13T18:21:21.360116100
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-13T18:21:21.360116100
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Train A', capacity=2500.0, speed=120.0}, resource=Grain{2000.0 kg}, from=Location{name='Odessa Warehouse'}, to=Location{name='Kyiv'}, totalDistance=480.0}
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.transport.Train - Transport Train A delivers Grain{2000.0 kg} from Odessa Warehouse to Kyiv
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 4,00 hours
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Grain
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Bulk grain products suitable for storage and long-distance transportation.
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched ship: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-13 15:21:21.360 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-13 15:21:21.360 [main] ERROR Main - Trip 4 failed: There is already a trip scheduled at this time: 2025-07-13T18:21:21.360116100
+2025-07-13 15:21:21.360 [main] INFO  Main - 
+=== Transported Resources ===
+2025-07-13 15:21:21.360 [main] INFO  Main - - Grain (2000.0 kg)
+2025-07-13 15:21:21.360 [main] INFO  Main - - Food (1000.0 kg)
+2025-07-13 15:21:21.360 [main] INFO  Main - - Medications (500.0 kg)
+2025-07-13 15:21:21.360 [main] INFO  Main - ==============================
+
+2025-07-13 16:03:26.610 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Truck added to queue: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-13 16:03:26.642 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Plane added to queue: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-13 16:03:26.642 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Train added to queue: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-13 16:03:26.642 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Ship added to queue: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-13 16:03:26.657 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched truck: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-13 16:03:26.657 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-13 16:03:26.657 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-13T19:03:26.657734600
+2025-07-13 16:03:26.657 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-13T19:03:26.657734600
+2025-07-13 16:03:26.673 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Truck{name='Truck A', capacity=1500.0speed80.0}, resource=Food{1000.0 kg}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Lviv'}, totalDistance=540.0}
+2025-07-13 16:03:26.673 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-13 16:03:26.673 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-13 16:03:26.673 [main] INFO  com.companyname.logistics.transport.Transport - Transport Truck A delivers Food{1000.0 kg} from Kyiv Warehouse to Lviv
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 6,75 hours
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Food
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Perishable food products suitable for transportation.
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched plane: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-13T19:03:26.688987100
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-13T19:03:26.688987100
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Plane A', capacity=600.0, speed=900.0}, resource=Medications{500.0 ml}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Odessa'}, totalDistance=450.0}
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.transport.Plane - Transport Plane A delivers Medications{500.0 ml} from Kyiv Warehouse to Odessa
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 0,50 hours
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Medications
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Medical supplies suitable for safe and temperature-controlled delivery.
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched train: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-13 16:03:26.688 [main] ERROR Main - Trip 3 failed: There is already a trip scheduled at this time: 2025-07-13T19:03:26.688987100
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched ship: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-13 16:03:26.688 [main] INFO  com.companyname.logistics.service.TransportService - Transport is available for delivery.
+2025-07-13 16:03:26.688 [main] ERROR Main - Trip 4 failed: There is already a trip scheduled at this time: 2025-07-13T19:03:26.688987100
+2025-07-13 16:03:26.688 [main] INFO  Main - 
+=== Transported Resources ===
+2025-07-13 16:03:26.704 [main] INFO  Main - - Food (1000.0 kg)
+2025-07-13 16:03:26.704 [main] INFO  Main - - Medications (500.0 kg)
+2025-07-13 16:03:26.704 [main] INFO  Main - ==============================
+
+2025-07-13 16:21:13.364 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Truck added to queue: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-13 16:21:13.379 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Plane added to queue: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-13 16:21:13.379 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Train added to queue: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-13 16:21:13.379 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Ship added to queue: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-13 16:21:13.395 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched truck: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-13 16:21:13.395 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-13T19:21:13.395364900
+2025-07-13 16:21:13.395 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-13T19:21:13.395364900
+2025-07-13 16:21:13.410 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Truck{name='Truck A', capacity=1500.0speed80.0}, resource=Food{1000.0 kg}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Lviv'}, totalDistance=540.0}
+2025-07-13 16:21:13.410 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-13 16:21:13.426 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-13 16:21:13.426 [main] INFO  com.companyname.logistics.transport.Transport - Transport Truck A delivers Food{1000.0 kg} from Kyiv Warehouse to Lviv
+2025-07-13 16:21:13.426 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 6,75 hours
+2025-07-13 16:21:13.426 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Food
+2025-07-13 16:21:13.426 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Perishable food products suitable for transportation.
+2025-07-13 16:21:13.426 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched plane: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-13 16:21:13.426 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-13T19:21:13.426620700
+2025-07-13 16:21:13.426 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-13T19:21:13.426620700
+2025-07-13 16:21:13.426 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Plane A', capacity=600.0, speed=900.0}, resource=Medications{500.0 ml}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Odessa'}, totalDistance=450.0}
+2025-07-13 16:21:13.426 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-13 16:21:13.426 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.transport.Plane - Transport Plane A delivers Medications{500.0 ml} from Kyiv Warehouse to Odessa
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 0,50 hours
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Medications
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Medical supplies suitable for safe and temperature-controlled delivery.
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched train: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-13T19:21:13.442241400
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-13T19:21:13.442241400
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Train A', capacity=2500.0, speed=120.0}, resource=Grain{2000.0 kg}, from=Location{name='Odessa Warehouse'}, to=Location{name='Kyiv'}, totalDistance=480.0}
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.transport.Train - Transport Train A delivers Grain{2000.0 kg} from Odessa Warehouse to Kyiv
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 4,00 hours
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Grain
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Bulk grain products suitable for storage and long-distance transportation.
+2025-07-13 16:21:13.442 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched ship: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-13 16:21:13.442 [main] ERROR Main - Trip 4 failed: There is already a trip scheduled at this time: 2025-07-13T19:21:13.442241400
+2025-07-13 16:21:13.442 [main] INFO  Main - 
+=== Transported Resources ===
+2025-07-13 16:21:13.442 [main] INFO  Main - - Grain (2000.0 kg)
+2025-07-13 16:21:13.442 [main] INFO  Main - - Medications (500.0 kg)
+2025-07-13 16:21:13.442 [main] INFO  Main - - Food (1000.0 kg)
+2025-07-13 16:21:13.442 [main] INFO  Main - ==============================
+
+2025-07-14 07:17:59.281 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Truck added to queue: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-14 07:17:59.375 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Plane added to queue: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-14 07:17:59.375 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Train added to queue: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-14 07:17:59.375 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Ship added to queue: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-14 07:17:59.953 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched truck: Truck{name='Truck A', capacity=1500.0speed80.0}
+2025-07-14 07:18:00.359 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-14T10:18:00.312726400
+2025-07-14 07:18:00.359 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-14T10:18:00.312726400
+2025-07-14 07:18:00.375 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Truck{name='Truck A', capacity=1500.0speed80.0}, resource=Food{1000.0 kg}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Lviv'}, totalDistance=540.0}
+2025-07-14 07:18:00.375 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-14 07:18:00.375 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-14 07:18:00.375 [main] INFO  com.companyname.logistics.transport.Transport - Transport Truck A delivers Food{1000.0 kg} from Kyiv Warehouse to Lviv
+2025-07-14 07:18:00.406 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 6,75 hours
+2025-07-14 07:18:00.406 [main] INFO  com.companyname.logistics.service.TransportStatusService - Transport Truck A status set to IN_TRANSIT
+2025-07-14 07:18:00.406 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Food
+2025-07-14 07:18:00.406 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Perishable food products suitable for transportation.
+2025-07-14 07:18:00.406 [main] INFO  com.companyname.logistics.service.TransportStatusService - Transport Truck A status set to AVAILABLE after trip
+2025-07-14 07:18:00.406 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched plane: Transport{id='Plane A', capacity=600.0, speed=900.0}
+2025-07-14 07:18:00.422 [main] INFO  com.companyname.logistics.trip.Trip - Trip scheduled for: 2025-07-14T10:18:00.422058900
+2025-07-14 07:18:00.422 [main] INFO  com.companyname.logistics.interfaces.Schedulable - Trip scheduled for: 2025-07-14T10:18:00.422058900
+2025-07-14 07:18:00.422 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Trip added: Trip{transport=Transport{id='Plane A', capacity=600.0, speed=900.0}, resource=Medications{500.0 ml}, from=Location{name='Kyiv Warehouse'}, to=Location{name='Odessa'}, totalDistance=450.0}
+2025-07-14 07:18:00.422 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Company Global Logistics organizes trip:
+2025-07-14 07:18:00.422 [main] INFO  com.companyname.logistics.trip.Trip - Starting trip
+2025-07-14 07:18:00.422 [main] INFO  com.companyname.logistics.transport.Plane - Transport Plane A delivers Medications{500.0 ml} from Kyiv Warehouse to Odessa
+2025-07-14 07:18:00.422 [main] INFO  com.companyname.logistics.trip.Trip - Estimated delivery time: 0,50 hours
+2025-07-14 07:18:00.422 [main] INFO  com.companyname.logistics.service.TransportStatusService - Transport Plane A status set to IN_TRANSIT
+2025-07-14 07:18:00.422 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Type: Medications
+2025-07-14 07:18:00.422 [main] INFO  com.companyname.logistics.service.ResourcePrinter - Info: Medical supplies suitable for safe and temperature-controlled delivery.
+2025-07-14 07:18:00.422 [main] INFO  com.companyname.logistics.service.TransportStatusService - Transport Plane A status set to AVAILABLE after trip
+2025-07-14 07:18:00.422 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched train: Transport{id='Train A', capacity=2500.0, speed=120.0}
+2025-07-14 07:18:00.422 [main] ERROR Main - Trip 3 failed: There is already a trip scheduled at this time: 2025-07-14T10:18:00.422058900
+2025-07-14 07:18:00.422 [main] INFO  com.companyname.logistics.company.LogisticsCompany - Dispatched ship: Transport{id='Ship A', capacity=2000.0, speed=40.0}
+2025-07-14 07:18:00.422 [main] ERROR Main - Trip 4 failed: There is already a trip scheduled at this time: 2025-07-14T10:18:00.422058900
+2025-07-14 07:18:00.422 [main] INFO  Main - 
+=== Transported Resources ===
+2025-07-14 07:18:00.422 [main] INFO  Main - - Medications (500.0 kg)
+2025-07-14 07:18:00.422 [main] INFO  Main - - Food (1000.0 kg)
+2025-07-14 07:18:00.422 [main] INFO  Main - ==============================
+
+2025-07-14 07:39:23.089 [main] INFO  stringutils.SpecialWordCounter - Application started.
+2025-07-14 07:39:23.121 [main] INFO  stringutils.SpecialWordCounter - Reading input file: C:\Users\UA\Downloads\Logistic\target\classes\input.txt
+2025-07-14 07:39:23.386 [main] INFO  stringutils.SpecialWordCounter - Result saved to file: C:\Users\UA\Downloads\Logistic\results.txt
+2025-07-14 07:39:23.386 [main] INFO  stringutils.SpecialWordCounter - Special words count: 25
+2025-07-14 07:39:23.386 [main] INFO  stringutils.SpecialWordCounter - Application finished.
+2025-07-14 07:43:39.256 [main] INFO  stringutils.SpecialWordCounter - Application started.
+2025-07-14 07:43:39.271 [main] INFO  stringutils.SpecialWordCounter - Reading input file: C:\Users\UA\Downloads\Logistic\target\classes\input.txt
+2025-07-14 07:43:39.445 [main] INFO  stringutils.SpecialWordCounter - Result saved to file: C:\Users\UA\Downloads\Logistic\results.txt
+2025-07-14 07:43:39.445 [main] INFO  stringutils.SpecialWordCounter - Special words count: 23
+2025-07-14 07:43:39.445 [main] INFO  stringutils.SpecialWordCounter - Application finished.
+2025-07-14 07:47:48.263 [main] INFO  stringutils.SpecialWordCounter - Application started.
+2025-07-14 07:47:48.310 [main] INFO  stringutils.SpecialWordCounter - Reading input file: C:\Users\UA\Downloads\Logistic\target\classes\input.txt
+2025-07-14 07:47:48.404 [main] INFO  stringutils.SpecialWordCounter - Result saved to file: C:\Users\UA\Downloads\Logistic\results.txt
+2025-07-14 07:47:48.404 [main] INFO  stringutils.SpecialWordCounter - Special words count: 23
+2025-07-14 07:47:48.404 [main] INFO  stringutils.SpecialWordCounter - Application finished.
