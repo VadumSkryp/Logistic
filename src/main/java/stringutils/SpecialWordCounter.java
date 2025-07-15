@@ -14,11 +14,11 @@ import java.util.Arrays;
 
 public class SpecialWordCounter {
 
-
     private static final Logger logger = LogManager.getLogger(SpecialWordCounter.class);
 
     public static void main(String[] args) {
         logger.info("Application started.");
+
 
         ClassLoader classLoader = SpecialWordCounter.class.getClassLoader();
         URL resource = classLoader.getResource("input.txt");
@@ -29,7 +29,10 @@ public class SpecialWordCounter {
         }
 
         File inputFile = new File(resource.getFile());
-        File outputFile = new File("results.txt");
+
+
+        File resourceDir = new File("src/main/resources");
+        File outputFile = new File(resourceDir, "output.txt");
 
         try {
             logger.info("Reading input file: {}", inputFile.getAbsolutePath());
@@ -55,3 +58,4 @@ public class SpecialWordCounter {
         logger.info("Application finished.");
     }
 }
+
