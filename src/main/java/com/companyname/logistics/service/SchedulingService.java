@@ -17,11 +17,12 @@ public class SchedulingService {
         LocalDateTime plannedTime = LocalDateTime.now().plusHours(3);
 
 
-        for (Schedulable trip : existingTrips) {
-            if (trip.getScheduledStartTime() != null && trip.getScheduledStartTime().equals(plannedTime)) {
-                throw new ScheduleConflictException("There is already a trip scheduled at this time: " + plannedTime);
-            }
+        if (existingTrips.stream()
+                .anyMatch(trip -> trip.getScheduledStartTime() != null &&
+                        trip.getScheduledStartTime().equals(plannedTime))) {
+            throw new ScheduleConflictException("There is already a trip scheduled at this time: " + plannedTime);
         }
+
 
         schedulable.schedule(plannedTime);
         LOGGER.info("Trip scheduled for: {}", schedulable.getScheduledStartTime());

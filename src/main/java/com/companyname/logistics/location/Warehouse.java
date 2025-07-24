@@ -21,8 +21,10 @@ public class Warehouse extends Location {
     }
 
     public void printStock() {
-        for (Map.Entry<Resource, Integer> entry : resourceStock.entrySet()) {
-            System.out.println(entry.getKey().getResourceType() + " — " + entry.getValue() + " pr.");
-        }
+        resourceStock.entrySet().stream()
+                .forEach(entry -> System.out.println(
+                        entry.getKey().getResourceType() + " — " + entry.getValue() + " pr."
+                ));
     }
+
 }

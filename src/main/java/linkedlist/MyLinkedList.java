@@ -49,7 +49,7 @@ public class MyLinkedList<T> {
             for (int i = 0; i < index - 1; i++) {
                 prev = prev.next;
             }
-            // Видаляємо node, на який посилається prev.next
+
             Node<T> toRemove = prev.next;
             prev.next = toRemove.next;
         }
