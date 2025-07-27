@@ -2,6 +2,7 @@ package com.companyname.logistics.company;
 
 import com.companyname.logistics.interfaces.DescribableCompany;
 import com.companyname.logistics.interfaces.TripManager;
+import com.companyname.logistics.resource.Resource;
 import com.companyname.logistics.trip.Trip;
 import com.companyname.logistics.transport.*;
 
@@ -14,17 +15,18 @@ public class LogisticsCompany extends Company implements TripManager, Describabl
 
     private static final Logger LOGGER = LogManager.getLogger(LogisticsCompany.class);
 
-    private List<Trip<?, ?>> trips = new ArrayList<>();
-    private Stack<Trip<?, ?>> tripHistoryStack = new Stack<>();
+    private final List<Trip<?, ?>> trips = new ArrayList<>();
+    private final Stack<Trip<?, ?>> tripHistoryStack = new Stack<>();
 
-
-    private Queue<Truck> truckQueue = new LinkedList<>();
-    private Queue<Plane> planeQueue = new LinkedList<>();
-    private Queue<Train> trainQueue = new LinkedList<>();
-    private Queue<Ship> shipQueue = new LinkedList<>();
+    private final Map<Class<?>, Queue<Transport<?>>> transportQueues = new HashMap<>();
 
     public LogisticsCompany(String name) {
         super(name);
+
+        transportQueues.put(Truck.class, new LinkedList<>());
+        transportQueues.put(Plane.class, new LinkedList<>());
+        transportQueues.put(Train.class, new LinkedList<>());
+        transportQueues.put(Ship.class, new LinkedList<>());
     }
 
     @Override
@@ -62,71 +64,31 @@ public class LogisticsCompany extends Company implements TripManager, Describabl
         return "Company '" + getName() + "' organized " + getNumberOfTrips() + " trips.";
     }
 
-
-    public void addTruck(Truck truck) {
-        truckQueue.offer(truck);
-        LOGGER.info("Truck added to queue: {}", truck);
-    }
-
-    public void addPlane(Plane plane) {
-        planeQueue.offer(plane);
-        LOGGER.info("Plane added to queue: {}", plane);
-    }
-
-    public void addTrain(Train train) {
-        trainQueue.offer(train);
-        LOGGER.info("Train added to queue: {}", train);
-    }
-
-    public void addShip(Ship ship) {
-        shipQueue.offer(ship);
-        LOGGER.info("Ship added to queue: {}", ship);
-    }
-
-
-    public Truck dispatchTruck() {
-        Truck truck = truckQueue.poll();
-        if (truck != null) {
-            LOGGER.info("Dispatched truck: {}", truck);
+    public <R extends Resource> void addTransport(Transport<R> transport) {
+        Queue<Transport<?>> queue = transportQueues.get(transport.getClass());
+        if (queue != null) {
+            queue.offer(transport);
+            LOGGER.info("{} added to queue: {}", transport.getClass().getSimpleName(), transport);
         } else {
-            LOGGER.warn("No trucks in queue to dispatch.");
+            LOGGER.warn("No queue for transport type: {}", transport.getClass().getSimpleName());
         }
-        return truck;
     }
 
-    public Plane dispatchPlane() {
-        Plane plane = planeQueue.poll();
-        if (plane != null) {
-            LOGGER.info("Dispatched plane: {}", plane);
+    public <T extends Transport<?>> T dispatchTransport(Class<T> transportType) {
+        Queue<Transport<?>> queue = transportQueues.get(transportType);
+        if (queue != null && !queue.isEmpty()) {
+            Transport<?> transport = queue.poll();
+            LOGGER.info("Dispatched {}: {}", transportType.getSimpleName(), transport);
+            return transportType.cast(transport);
         } else {
-            LOGGER.warn("No planes in queue to dispatch.");
+            LOGGER.warn("No {}s in queue to dispatch.", transportType.getSimpleName());
+            return null;
         }
-        return plane;
-    }
-
-    public Train dispatchTrain() {
-        Train train = trainQueue.poll();
-        if (train != null) {
-            LOGGER.info("Dispatched train: {}", train);
-        } else {
-            LOGGER.warn("No trains in queue to dispatch.");
-        }
-        return train;
-    }
-
-    public Ship dispatchShip() {
-        Ship ship = shipQueue.poll();
-        if (ship != null) {
-            LOGGER.info("Dispatched ship: {}", ship);
-        } else {
-            LOGGER.warn("No ships in queue to dispatch.");
-        }
-        return ship;
     }
 
     public Trip<?, ?> getLastOrganizedTrip() {
         if (tripHistoryStack.isEmpty()) {
-           throw new NoSuchElementException("No trips in history");
+            throw new NoSuchElementException("No trips in history");
         }
         return tripHistoryStack.peek();
     }

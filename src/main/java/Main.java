@@ -43,10 +43,10 @@ public class Main {
         odessaWarehouse.addResource(wheat, 150);
         odessaWarehouse.addResource(oil, 75);
 
-        company.addTruck(new Truck("Truck A", 1500, 80));
-        company.addPlane(new Plane("Plane A", 600, 900));
-        company.addTrain(new Train("Train A", 2500, 120));
-        company.addShip(new Ship("Ship A", 2000, 40));
+        company.addTransport(new Truck("Truck A", 1500, 80));
+        company.addTransport(new Plane("Plane A", 600, 900));
+        company.addTransport(new Train("Train A", 2500, 120));
+        company.addTransport(new Ship("Ship A", 2000, 40));
 
         TransportService transportService = new TransportService();
         SchedulingService schedulingService = new SchedulingService();
@@ -65,169 +65,85 @@ public class Main {
         };
 
         ResourceWeightChecker isHeavyChecker = resource -> resource.getWeight() > 1000;
-
         TransportSpeedEvaluator speedEvaluator = transport -> transport.getSpeed() > 100;
 
         List<Trip<?, ?>> scheduledTrips = new ArrayList<>();
         Container<Resource> transportedResources = new Container<>();
 
-        // Trip 1 — Truck + Food
-        Truck truck = company.dispatchTruck();
-        if (truck == null) {
-            LOGGER.error("No trucks available for dispatch.");
-        } else {
-            try {
-                transportStatusService.checkTransportReady(truck);
-                Trip<Truck, Food> trip1 = new Trip<>(truck, apples, kyivWarehouse, lviv, 540, TripPriority.MEDIUM);
+        planAndExecuteTrip(company, schedulingService, transportStatusService, resourcePrinter,
+                Truck.class, apples, kyivWarehouse, lviv, 540, TripPriority.MEDIUM,
+                scheduledTrips, transportedResources, costCalculator, isHeavyChecker, speedEvaluator);
 
-                schedulingService.planTrip(trip1, new ArrayList<>(scheduledTrips));
-                scheduledTrips.add(trip1);
-                company.organizeTrip(trip1);
+        planAndExecuteTrip(company, schedulingService, transportStatusService, resourcePrinter,
+                Plane.class, meds, kyivWarehouse, odessa, 450, TripPriority.CRITICAL,
+                scheduledTrips, transportedResources, costCalculator, isHeavyChecker, speedEvaluator);
 
-                transportStatusService.startTrip(truck);
+        planAndExecuteTrip(company, schedulingService, transportStatusService, resourcePrinter,
+                Train.class, wheat, odessaWarehouse, kyiv, 480, TripPriority.LOW,
+                scheduledTrips, transportedResources, costCalculator, isHeavyChecker, speedEvaluator);
 
-                if (speedEvaluator.isFast(truck)) {
-                    LOGGER.info("Trip 1: Truck is fast.");
-                } else {
-                    LOGGER.info("Trip 1: Truck is slow.");
-                }
-
-                double costTrip1 = costCalculator.calculate(apples.getWeight(), 540, TripPriority.MEDIUM);
-                LOGGER.info("Cost of delivery for Trip 1: {} UAH", costTrip1);
-
-                if (isHeavyChecker.isHeavy(apples)) {
-                    LOGGER.info("Trip 1: Resource is heavy.");
-                } else {
-                    LOGGER.info("Trip 1: Resource is light.");
-                }
-
-                resourcePrinter.printResourceInfo(apples);
-                transportedResources.addItem(apples);
-                transportStatusService.completeTrip(truck);
-
-            } catch (ScheduleConflictException | TransportNotReadyException e) {
-                LOGGER.error("Trip 1 failed: {}", e.getMessage());
-            }
-        }
-
-        // Trip 2 — Plane + Medications
-        Plane plane = company.dispatchPlane();
-        if (plane == null) {
-            LOGGER.error("No planes available for dispatch.");
-        } else {
-            try {
-                transportStatusService.checkTransportReady(plane);
-                Trip<Plane, Medications> trip2 = new Trip<>(plane, meds, kyivWarehouse, odessa, 450, TripPriority.CRITICAL);
-
-                schedulingService.planTrip(trip2, new ArrayList<>(scheduledTrips));
-                scheduledTrips.add(trip2);
-                company.organizeTrip(trip2);
-
-                transportStatusService.startTrip(plane);
-
-                if (speedEvaluator.isFast(plane)) {
-                    LOGGER.info("Trip 2: Plane is fast.");
-                } else {
-                    LOGGER.info("Trip 2: Plane is slow.");
-                }
-
-                double costTrip2 = costCalculator.calculate(meds.getWeight(), 450, TripPriority.CRITICAL);
-                LOGGER.info("Cost of delivery for Trip 2: {} UAH", costTrip2);
-
-                if (isHeavyChecker.isHeavy(meds)) {
-                    LOGGER.info("Trip 2: Resource is heavy.");
-                } else {
-                    LOGGER.info("Trip 2: Resource is light.");
-                }
-
-                resourcePrinter.printResourceInfo(meds);
-                transportedResources.addItem(meds);
-                transportStatusService.completeTrip(plane);
-
-            } catch (ScheduleConflictException | TransportNotReadyException e) {
-                LOGGER.error("Trip 2 failed: {}", e.getMessage());
-            }
-        }
-
-        // Trip 3 — Train + Grain
-        Train train = company.dispatchTrain();
-        if (train == null) {
-            LOGGER.error("No trains available for dispatch.");
-        } else {
-            try {
-                transportStatusService.checkTransportReady(train);
-                Trip<Train, Grain> trip3 = new Trip<>(train, wheat, odessaWarehouse, kyiv, 480, TripPriority.LOW);
-
-                schedulingService.planTrip(trip3, new ArrayList<>(scheduledTrips));
-                scheduledTrips.add(trip3);
-                company.organizeTrip(trip3);
-
-                transportStatusService.startTrip(train);
-
-                if (speedEvaluator.isFast(train)) {
-                    LOGGER.info("Trip 3: Train is fast.");
-                } else {
-                    LOGGER.info("Trip 3: Train is slow.");
-                }
-
-                double costTrip3 = costCalculator.calculate(wheat.getWeight(), 480, TripPriority.LOW);
-                LOGGER.info("Cost of delivery for Trip 3: {} UAH", costTrip3);
-
-                if (isHeavyChecker.isHeavy(wheat)) {
-                    LOGGER.info("Trip 3: Resource is heavy.");
-                } else {
-                    LOGGER.info("Trip 3: Resource is light.");
-                }
-
-                resourcePrinter.printResourceInfo(wheat);
-                transportedResources.addItem(wheat);
-                transportStatusService.completeTrip(train);
-
-            } catch (ScheduleConflictException | TransportNotReadyException e) {
-                LOGGER.error("Trip 3 failed: {}", e.getMessage());
-            }
-        }
-
-        // Trip 4 — Ship + Oil
-        Ship ship = company.dispatchShip();
-        if (ship == null) {
-            LOGGER.error("No ships available for dispatch.");
-        } else {
-            try {
-                transportStatusService.checkTransportReady(ship);
-                Trip<Ship, Oil> trip4 = new Trip<>(ship, oil, odessaWarehouse, lviv, 680, TripPriority.MEDIUM);
-
-                schedulingService.planTrip(trip4, new ArrayList<>(scheduledTrips));
-                scheduledTrips.add(trip4);
-                company.organizeTrip(trip4);
-
-                transportStatusService.startTrip(ship);
-
-                if (speedEvaluator.isFast(ship)) {
-                    LOGGER.info("Trip 4: Ship is fast.");
-                } else {
-                    LOGGER.info("Trip 4: Ship is slow.");
-                }
-
-                double costTrip4 = costCalculator.calculate(oil.getWeight(), 680, TripPriority.MEDIUM);
-                LOGGER.info("Cost of delivery for Trip 4: {} UAH", costTrip4);
-
-                if (isHeavyChecker.isHeavy(oil)) {
-                    LOGGER.info("Trip 4: Resource is heavy.");
-                } else {
-                    LOGGER.info("Trip 4: Resource is light.");
-                }
-
-                resourcePrinter.printResourceInfo(oil);
-                transportedResources.addItem(oil);
-                transportStatusService.completeTrip(ship);
-
-            } catch (ScheduleConflictException | TransportNotReadyException e) {
-                LOGGER.error("Trip 4 failed: {}", e.getMessage());
-            }
-        }
+        planAndExecuteTrip(company, schedulingService, transportStatusService, resourcePrinter,
+                Ship.class, oil, odessaWarehouse, lviv, 680, TripPriority.MEDIUM,
+                scheduledTrips, transportedResources, costCalculator, isHeavyChecker, speedEvaluator);
 
         printTransportedResources(transportedResources);
+    }
+
+    public static <T extends Transport<R>, R extends Resource> void planAndExecuteTrip(
+            LogisticsCompany company,
+            SchedulingService schedulingService,
+            TransportStatusService statusService,
+            ResourcePrinter printer,
+            Class<T> transportClass,
+            R resource,
+            Warehouse from,
+            City to,
+            int distance,
+            TripPriority priority,
+            List<Trip<?, ?>> scheduledTrips,
+            Container<Resource> transportedResources,
+            SimpleCostCalculator costCalculator,
+            ResourceWeightChecker weightChecker,
+            TransportSpeedEvaluator speedEvaluator
+    ) {
+        T transport = company.dispatchTransport(transportClass);
+        if (transport == null) {
+            LOGGER.error("No {}s available for dispatch.", transportClass.getSimpleName());
+            return;
+        }
+
+        try {
+            statusService.checkTransportReady(transport);
+            Trip<T, R> trip = new Trip<>(transport, resource, from, to, distance, priority);
+
+            schedulingService.planTrip(trip, new ArrayList<>(scheduledTrips));
+            scheduledTrips.add(trip);
+            company.organizeTrip(trip);
+
+            statusService.startTrip(transport);
+
+            if (speedEvaluator.isFast(transport)) {
+                LOGGER.info("{} is fast.", transport.getName());
+            } else {
+                LOGGER.info("{} is slow.", transport.getName());
+            }
+
+            double cost = costCalculator.calculate(resource.getWeight(), distance, priority);
+            LOGGER.info("Cost of delivery: {} UAH", cost);
+
+            if (weightChecker.isHeavy(resource)) {
+                LOGGER.info("Resource is heavy.");
+            } else {
+                LOGGER.info("Resource is light.");
+            }
+
+            printer.printResourceInfo(resource);
+            transportedResources.addItem(resource);
+            statusService.completeTrip(transport);
+
+        } catch (ScheduleConflictException | TransportNotReadyException e) {
+            LOGGER.error("Trip failed: {}", e.getMessage());
+        }
     }
 
     public static void printTransportedResources(Container<Resource> container) {
