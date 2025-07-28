@@ -8,10 +8,13 @@ import com.companyname.logistics.functionalInterfaces.ResourceWeightChecker;
 import com.companyname.logistics.functionalInterfaces.TransportSpeedEvaluator;
 import com.companyname.logistics.location.City;
 import com.companyname.logistics.location.Warehouse;
+import com.companyname.logistics.records.SummaryReport;
 import com.companyname.logistics.resource.*;
 import com.companyname.logistics.service.*;
 import com.companyname.logistics.transport.*;
 import com.companyname.logistics.trip.Trip;
+
+import com.companyname.logistics.utils.ReportUtils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,6 +32,7 @@ public class Main {
 
         Warehouse kyivWarehouse = new Warehouse("Kyiv Warehouse");
         Warehouse odessaWarehouse = new Warehouse("Odessa Warehouse");
+
         City kyiv = new City("Kyiv");
         City odessa = new City("Odessa");
         City lviv = new City("Lviv");
@@ -53,6 +57,7 @@ public class Main {
         ResourcePrinter resourcePrinter = new ResourcePrinter();
         TransportStatusService transportStatusService = new TransportStatusService();
 
+        // Calculates delivery cost based on weight, distance and priority
         SimpleCostCalculator costCalculator = (weight, distance, priority) -> {
             double baseCost = weight * distance * 0.5;
             double priorityMultiplier = switch (priority) {
@@ -70,6 +75,7 @@ public class Main {
         List<Trip<?, ?>> scheduledTrips = new ArrayList<>();
         Container<Resource> transportedResources = new Container<>();
 
+        // Execute delivery trips
         planAndExecuteTrip(company, schedulingService, transportStatusService, resourcePrinter,
                 Truck.class, apples, kyivWarehouse, lviv, 540, TripPriority.MEDIUM,
                 scheduledTrips, transportedResources, costCalculator, isHeavyChecker, speedEvaluator);
@@ -86,9 +92,22 @@ public class Main {
                 Ship.class, oil, odessaWarehouse, lviv, 680, TripPriority.MEDIUM,
                 scheduledTrips, transportedResources, costCalculator, isHeavyChecker, speedEvaluator);
 
-        printTransportedResources(transportedResources);
+        // Summarize trip data
+        int totalTrips = scheduledTrips.size();
+        double totalWeight = transportedResources.getItems().stream()
+                .mapToDouble(Resource::getWeight)
+                .sum();
+        double totalDistance = scheduledTrips.stream()
+                .mapToDouble(Trip::getTotalDistance)
+                .sum();
+
+        SummaryReport report = new SummaryReport(totalTrips, totalWeight, totalDistance);
+        ReportUtils.printReportDetails(report);
     }
 
+    /**
+     * Plans and executes a delivery trip.
+     */
     public static <T extends Transport<R>, R extends Resource> void planAndExecuteTrip(
             LogisticsCompany company,
             SchedulingService schedulingService,
@@ -114,12 +133,11 @@ public class Main {
 
         try {
             statusService.checkTransportReady(transport);
-            Trip<T, R> trip = new Trip<>(transport, resource, from, to, distance, priority);
 
+            Trip<T, R> trip = new Trip<>(transport, resource, from, to, distance, priority);
             schedulingService.planTrip(trip, new ArrayList<>(scheduledTrips));
             scheduledTrips.add(trip);
             company.organizeTrip(trip);
-
             statusService.startTrip(transport);
 
             if (speedEvaluator.isFast(transport)) {
@@ -144,31 +162,5 @@ public class Main {
         } catch (ScheduleConflictException | TransportNotReadyException e) {
             LOGGER.error("Trip failed: {}", e.getMessage());
         }
-    }
-
-    public static void printTransportedResources(Container<Resource> container) {
-        LOGGER.info("\n=== Transported Resources ===");
-        if (container.getItems().isEmpty()) {
-            LOGGER.info("No resources were transported.");
-        } else {
-            container.getItems().stream()
-                    .map(resource -> {
-                        String type = resource.getClass().getSimpleName();
-                        double weight = resource.getWeight();
-                        String unit;
-
-                        if (resource instanceof Medications) {
-                            unit = "ml";
-                        } else if (resource instanceof Oil) {
-                            unit = "liters";
-                        } else {
-                            unit = "kg";
-                        }
-
-                        return String.format("- %s (%.2f %s)", type, weight, unit);
-                    })
-                    .forEach(LOGGER::info);
-        }
-        LOGGER.info("==============================\n");
     }
 }
